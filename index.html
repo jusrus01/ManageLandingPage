@@ -4,8 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@400;500;700&display=swap" rel="stylesheet"> 
+
   <title>Frontend Mentor | Manage landing page</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -16,44 +21,119 @@
 </head>
 <body>
 
-  Pricing
-  Product
-  About Us
-  Careers
-  Community
 
-  Get Started
+  <header id="header" class="header">
+    <div class="overlay"></div>
+    <nav class="container flex flex-jc-sb flex-ai-c">
+      <a href="/" class="header--logo">
+        <img src="images/logo.svg" alt="Manage">
+      </a>
 
-  Bring everyone together to build better products.
+      <a id="menuButton" href="#" class="header--toggle hide-for-desktop">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
 
-  Manage makes it simple for software teams to plan day-to-day 
-  tasks while keeping the larger team goals in view.
+      <div class="header--links hide-for-mobile">
+        <a href="#">Pricing</a><a href="#">Product</a><a href="#">About Us</a><a href="#">Careers</a><a href="#">Community</a>
+      </div>
+      <button type="button" class="hide-for-mobile">Get Started</button>
+      
+      <div class="header--menu">
+        <a href="#">Pricing</a>
+        <a href="#">Product</a>
+        <a href="#">About Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Community</a>
+      </div>
+    </nav>
+  </header>
 
-  Get Started
+  <section>
+    <div class="container--px container hero">
+      <div class="hero--image"></div>
+      <div class="hero--text">
+        <h1>
+          Bring everyone together to build better products.
+        </h1>
 
-  What’s different about Manage?
+        <p>
+          Manage makes it simple for software teams to plan day-to-day 
+          tasks while keeping the larger team goals in view.
+        </p>
+        
+        <button type="button">Get Started</button>
+      </div>
+    </div>
+  </section>
 
-  Manage provides all the functionality your team needs, without 
-  the complexity. Our software is tailor-made for modern digital 
-  product teams. 
+  <section class="container--px container info">
+    <div>
+      <h2>
+        What’s different about Manage?
+      </h2>
+      <p>
+        Manage provides all the functionality your team needs, without 
+        the complexity. Our software is tailor-made for modern digital 
+        product teams. 
+      </p>
+    </div>
+    <div>
 
-  01
-  Track company-wide progress
-  See how your day-to-day tasks fit into the wider vision. Go from 
-  tracking progress at the milestone level all the way done to the 
-  smallest of details. Never lose sight of the bigger picture again.
+      <div>
+        <div class="info--header">
+          <span>01</span>
+          <h3>
+            Track company-wide progress
+          </h3>
+        </div>
+        <p class="info--text">
+          See how your day-to-day tasks fit into the wider vision. Go from 
+          tracking progress at the milestone level all the way done to the 
+          smallest of details. Never lose sight of the bigger picture again.
+        </p>
+      </div>
 
-  02
-  Advanced built-in reports
-  Set internal delivery estimates and track progress toward company 
-  goals. Our customisable dashboard helps you build out the reports 
-  you need to keep key stakeholders informed.
+      <div>
+        <div class="info--header">
+          <span>02</span>
+          <h3>
+            Advanced built-in reports
+          </h3>
+        </div>
+        <p class="info--text">
+          Set internal delivery estimates and track progress toward company 
+          goals. Our customisable dashboard helps you build out the reports 
+          you need to keep key stakeholders informed.
+        </p>
+      </div>
 
-  03
-  Everything you need in one place
-  Stop jumping from one service to another to communicate, store files, 
-  track tasks and share documents. Manage offers an all-in-one team 
-  productivity solution.
+      <div>
+        <div class="info--header">
+          <span>03</span>
+          <h3>
+            Everything you need in one place
+          </h3>
+        </div>
+        <p class="info--text">
+          Stop jumping from one service to another to communicate, store files, 
+          track tasks and share documents. Manage offers an all-in-one team 
+          productivity solution.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container container--px testimonials">
+
+  </section>
+
+  <div class="container">
+    
+
+
+
 
   What they’ve said
 
@@ -90,12 +170,14 @@
   Updates in your inbox…
   Go
 
-  Copyright 2020. All Rights Reserved
-
+  Copyright 2021. All Rights Reserved
+  </div>
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">jusrus01</a>.
+    Coded by <a href="https://jusrus01.github.io/">Justinas R.</a>.
   </div>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
