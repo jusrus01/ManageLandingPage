@@ -19,8 +19,13 @@ html {
     overflow-x: hidden;
 }
 
+
 *, *::before, *::after {
     box-sizing: inherit;
+}
+
+.has-fade {
+    visibility: hidden;
 }
 
 p {
@@ -36,6 +41,8 @@ body {
     font-family: 'Be Vietnam', sans-serif;
     font-size: 1rem;
     color: var(--clr-grayish-blue);
+    position: relative;
+    overflow: hidden;
 }
 
 h2, h3 {
@@ -48,7 +55,7 @@ h2 {
 }
 
 nav {
-    background-color: white;
+    background-color: transparent;
 }
 
 /* Flex */
@@ -113,7 +120,8 @@ button:hover, .button:hover {
 /* Header styles */
 
 .header {
-
+    /* position: relative;
+    overflow-x: hidden; */
 }
 
 .header nav {
@@ -126,14 +134,19 @@ button:hover, .button:hover {
 
 .open .header--menu {
     display: block;
+    visibility: visible;
 }
 
-.open .overlay {
-    display: block;
+.fade-in {
+    animation: fade-in 200ms ease-in-out forwards;
+}
+
+.fade-out {
+    animation: fade-out 200ms ease-in-out forwards;
 }
 
 .header--menu {
-    display: none;
+    visibility: hidden;
     position: absolute;
     top: 100px;
     left: 50%;
@@ -142,6 +155,7 @@ button:hover, .button:hover {
     text-align: center;
     padding: 20px 0;
     background-color: white;
+    z-index: 10;
 }
 
 .header--menu a {
@@ -175,6 +189,23 @@ button:hover, .button:hover {
     font-size: 0.875rem;
 }
 
+.open .header--toggle > span:nth-child(2) {
+    opacity: 0;
+}
+
+.open .header--toggle > span:first-child {
+    transform: rotate(45deg);
+}
+
+.open .header--toggle > span:last-child {
+    transform: rotate(-45deg);
+}
+
+.header--toggle > span {
+    transition: all 300ms ease-in-out;
+    transform-origin: 3px 1.5px;   
+}
+
 .header--links a:not(:last-child) {
     margin-right: 32px;
 }
@@ -190,7 +221,8 @@ button:hover, .button:hover {
     background-image: linear-gradient(0deg, #2d314d, transparent);
     width: 100%;
     height: 100%;
-    display: none;
+
+    z-index: 5;
 }
 
 /* Utility classes */
@@ -203,12 +235,18 @@ button:hover, .button:hover {
     height: 100%;
 }
 
-.hero--image::before {
-    content: "";
-    background-image: url("../images/bg-tablet-pattern.svg");
-    background-size: cover;
+.bg-pattern {
+    background-size: contain;
+    background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    position: absolute;
+    background-image: url("../images/bg-tablet-pattern.svg");
+    left: 50%;
+    bottom: 35%;
+    opacity: 0.5;
+    z-index: -1;
+    overflow: hidden;
 }
 
 .hero--image {
@@ -216,7 +254,8 @@ button:hover, .button:hover {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-    height: 400px;
+    position: relative;
+    height: 25rem;
     width: 100%;
 }
 
@@ -240,8 +279,7 @@ button:hover, .button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    background-color: var(--clr-pale-red);
+    position: relative;
 }
 
 .info--header span {
@@ -254,23 +292,50 @@ button:hover, .button:hover {
     padding-bottom: 0.55rem;
     padding-left: 1.2rem;
     padding-right: 1.2rem;
+    z-index: 2;
+}
 
-    z-index: 1;
+.info--bg {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: var(--clr-pale-red);
+    padding-top: 2.1rem;
+    opacity: 0.5;
+    z-index: -1;
 }
 
 .info--header h3 {
     padding-left: 1.5rem;
     margin: 0;
+    position: relative;
+    z-index: 3;
+}
 
+/* Simply */
+.simply {
+    width: 100%;
+    height: 100%;
+    background-color: var(--clr-red); 
+}
+
+.simply__container {
+    padding: 2rem 4rem;
+    text-align: center;
+}
+
+.simply__container h2 {
+    color: var(--clr-light-gray);
+}
+
+.simply__container button {
+    color: var(--clr-red);
+    background-color: var(--clr-light-gray);
 }
 
 @media screen and (min-width: 56.25em) {
-    .open .overlay {
-        display: none !important;
-    }
-
-    .open .header--menu {
-        display: none !important;
+    .has-fade > .overlay {
+        visibility: hidden;
     }
 
     /* Handling hero responsiness */
@@ -292,11 +357,21 @@ button:hover, .button:hover {
 
     .info--header {
         justify-content: left;
-        background-color: white;
+        background-color: transparent;
     }
 
     .info--text {
         margin-left: 5rem;
+    }
+
+    .info--bg {
+        visibility: hidden;
+    }
+
+    .simply__container {
+        display: flex;
+        text-align: left;
+        justify-content: space-between;
     }
 }
 
@@ -307,5 +382,44 @@ button:hover, .button:hover {
 
     .hide-for-desktop {
         display: block;
+    }
+
+    .bg-pattern {
+        left: 10%;
+        bottom: 2%;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    1% {
+        visibility: visible;
+        opacity: 0;
+    }
+
+    to {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    90% {
+        visibility: visible;
+        opacity: 0;
+    }
+
+    to {
+        visibility: hidden;
+        opacity: 0;
     }
 }
