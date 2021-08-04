@@ -333,6 +333,69 @@ button:hover, .button:hover {
     background-color: var(--clr-light-gray);
 }
 
+/* Card styles */
+
+.card--active {
+    visibility: visible;
+}
+
+.card--inactive {
+    visibility: hidden;
+}
+
+.testimonials {
+    position: relative;
+    height: 22rem;
+    margin-bottom: 10px;
+}
+
+.testimonials-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1.0625rem;
+    padding-bottom: 1.0625rem;
+
+    max-width: 69.375rem;
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.card {
+    /* background-color: var(--clr-light-gray); */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, var(--clr-light-gray) 80%, transparent 20%);
+}
+
+.card img {
+    height: 100px;
+}
+
+.card p {
+    padding-top: 0;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    padding-bottom: 1.5rem;
+}
+
+.carousel-tracker span {
+    display: inline-block;
+    border-radius: 50px;
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--clr-red);
+}
+
+.carousel--active {
+    background-color: var(--clr-red);
+}
+
+.carousel-tracker span:not(:last-child) {
+    margin-right: 2px;
+}
+
 @media screen and (min-width: 56.25em) {
     .has-fade > .overlay {
         visibility: hidden;
@@ -372,6 +435,33 @@ button:hover, .button:hover {
         display: flex;
         text-align: left;
         justify-content: space-between;
+    }
+
+    .card {
+        width: 30%;
+        left: -100%;
+    }
+
+    .card--center {
+        left: 50%;
+        transform: translateX(-50%);
+        transition: all 1000ms linear;
+    }
+
+    .card--left {
+        left: 0;
+        transition: all 1000ms linear;
+    }
+
+    .card--right {
+        left: 100%;
+        transform: translateX(-100%);
+        transition: all 1000ms linear;
+    }
+
+    .testimonials-container {
+        padding: 0;
+        max-width: 100rem;
     }
 }
 
