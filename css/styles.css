@@ -322,6 +322,7 @@ button:hover, .button:hover {
     width: 100%;
     height: 100%;
     background-color: var(--clr-red); 
+    position: relative;
 }
 
 .simply__container {
@@ -336,14 +337,26 @@ button:hover, .button:hover {
     text-align: center;
 }
 
+.simply__image {
+    background-image: url("../images/bg-simplify-section-mobile.svg");
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
 .simply__container h2 {
     color: var(--clr-light-gray);
+    z-index: 2;
 }
 
 .simply__container button {
     color: var(--clr-red);
     background-color: var(--clr-light-gray);
     transition: color 200ms ease-in-out;
+    z-index: 2;
 }
 
 .simply__container button:hover {
@@ -651,6 +664,10 @@ footer h5 {
     .testimonials-container button {
         margin-top: 25rem;
         margin-bottom: 10rem;
+    }
+
+    .simply__image {
+        background-image: url("../images/bg-simplify-section-desktop.svg");
     }
     
     /* 
