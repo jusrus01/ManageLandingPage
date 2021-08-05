@@ -540,27 +540,47 @@ footer h5 {
 }
 
 @keyframes move-outside {
-    0% {
+    from {
         left: 100%;
         transform: translateX(-100%);
     }
 
-    99% {
+    to {
         left: 150%
-    }
-
-    100% {
-        left: -100%;
     }
 }
 
 @keyframes to-left {
     from {
-
+        left: -100%;
     }
 
     to {
-        
+        left: 0;
+    }
+}
+
+@keyframes to-center {
+    from {
+        left: 0;
+    }
+    
+    to {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes to-right {
+    
+    from {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    to {
+        left: 100%;
+        transform: translateX(-100%);
     }
 }
 
@@ -639,27 +659,19 @@ footer h5 {
     } */
 
     .card--center {
-        left: 50%;
-        transform: translateX(-50%);
-        transition: all 1000ms linear;
+        animation: to-center 1000ms linear forwards;
     }
 
     .card--left {
-        left: 0;
-        transition: all 1000ms linear;
+        animation: to-left 1000ms linear forwards;
     }
 
     .card--none { 
-        /* left: 150%; */
-        /* transition: all 1000ms linear; */
-        transition: none;
         animation: move-outside 1000ms linear forwards;
     }
 
     .card--right {
-        left: 100%;
-        transform: translateX(-100%);
-        transition: all 1000ms linear;
+        animation: to-right 1000ms linear forwards;
     }
 
     .footer__container {
