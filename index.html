@@ -12,12 +12,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@400;500;700&display=swap" rel="stylesheet"> 
 
   <title>Frontend Mentor | Manage landing page</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
   <div class="bg-pattern"></div>
@@ -175,7 +169,7 @@
         </p>
       </div>
   
-      <div class="card card--active">
+      <div class="card card--active card--none">
         <img src="images/avatar-shanai.png" alt="">
         <h3>Shanai Gough</h3>
         <p>
@@ -210,8 +204,10 @@
   <footer>
     <div class="footer__container">
       <div class="footer__input">
-        <input type="text" name="" id="" placeholder="    Updates in your inbox…">
-        <button type="button">Go</button>
+        <form>
+          <input type="email" name="" id="" maxlength="50" placeholder="    Updates in your inbox…" required>
+          <button type="submit">Go</button>
+        </form>
       </div>
   
       <div class="footer__links footer--mt">

@@ -15,7 +15,8 @@ const minScreenWidth = 1000;
 const classNames = {
     left: "card--left",
     right: "card--right",
-    center: "card--center"
+    center: "card--center",
+    none: "card--none"
 };
 
 let carouselMarkersShowing = true;
@@ -105,7 +106,9 @@ function changeClassState(element) {
         element.classList.add(classNames.right);
     } else if(element.classList.contains(classNames.right)) {
         element.classList.remove(classNames.right);
-    } else {
+        element.classList.add(classNames.none);
+    } else if(element.classList.contains(classNames.none)) {
+        element.classList.remove(classNames.none);
         element.classList.add(classNames.left);
     }
 }
