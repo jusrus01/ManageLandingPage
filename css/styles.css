@@ -324,8 +324,15 @@ button:hover, .button:hover {
 }
 
 .simply__container {
-    padding: 2rem 4rem;
-    text-align: center;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1.0625rem;
+    padding-bottom: 1.0625rem;
+
+    max-width: 69.375rem;
+    margin: 0 auto;
+    /* padding: 2rem 4rem; */
+    /* text-align: center; */
 }
 
 .simply__container h2 {
@@ -354,21 +361,25 @@ button:hover, .button:hover {
 }
 
 .testimonials {
-    position: relative;
+    position: absolute;
     height: 22rem;
     margin-bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110%;
 }
 
 .testimonials-container {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    /* padding-left: 1.5rem; */
+    /* padding-right: 1.5rem; */
     padding-top: 1.0625rem;
     padding-bottom: 1.0625rem;
-
-    max-width: 69.375rem;
+    /* width: 110%; */
+    max-width: 130rem;
     margin: 0 auto;
-
+    width: 100%;
     text-align: center;
+    position: relative;
 }
 
 .testimonials-container h2 {
@@ -376,7 +387,9 @@ button:hover, .button:hover {
 }
 
 .testimonials-container button {
-    margin: 2rem 0;
+    margin-top: 25rem;
+    margin-bottom: 10rem;
+
 }
 
 .card {
@@ -421,6 +434,7 @@ footer {
     /* align-items: center; */
     margin: 0 auto 0 auto;
     padding-top: 3rem;
+
     background-color: var(--clr-dark-blue);
 }
 
@@ -432,6 +446,11 @@ footer {
 .footer__container {
     display: grid;
     margin: 0 auto 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 1.0625rem;
+
+    max-width: 69.375rem;
 }
 
 .footer__links a {
@@ -449,6 +468,11 @@ footer {
     border: 0;
 }
 
+.footer__input input:focus {
+    color: var(--clr-red);
+    border: 1px solid var(--clr-red);
+}
+
 .footer__input button {
     margin-left: 0.2rem;
 }
@@ -456,7 +480,6 @@ footer {
 .footer__input input::placeholder {
     font-family: 'Be Vietnam', sans-serif;
 }
-
 
 footer h5 {
     text-align: center;
@@ -507,6 +530,38 @@ footer h5 {
 .attribution {
     padding: 2rem;
     color: var(--clr-light-gray);
+    font-size: 11px;
+    text-align: center; 
+}
+
+.attribution a {
+    color: var(--clr-red);
+    text-decoration: none;
+}
+
+@keyframes move-outside {
+    0% {
+        left: 100%;
+        transform: translateX(-100%);
+    }
+
+    99% {
+        left: 150%
+    }
+
+    100% {
+        left: -100%;
+    }
+}
+
+@keyframes to-left {
+    from {
+
+    }
+
+    to {
+        
+    }
 }
 
 @media screen and (min-width: 56.25em) {
@@ -550,10 +605,38 @@ footer h5 {
         justify-content: space-between;
     }
 
+    .simply__container h2 {
+        width: 50%;
+    }
+
+    .simply__container button {
+        max-height: 50px;
+        margin: auto 0;
+    }
+
+    .footer__container img {
+        height: 2rem;
+    }
+
     .card {
         width: 30%;
         left: -100%;
     }
+    
+    /* 
+    @keyframes out-of-bounds {
+        99% {
+            left: 150%
+        }
+
+        100% {
+            left: -100%;
+        }
+    }
+
+    .card--out-of-bounds {
+        animation: out-of-bounds 1000ms linear forwards;
+    } */
 
     .card--center {
         left: 50%;
@@ -566,6 +649,13 @@ footer h5 {
         transition: all 1000ms linear;
     }
 
+    .card--none { 
+        /* left: 150%; */
+        /* transition: all 1000ms linear; */
+        transition: none;
+        animation: move-outside 1000ms linear forwards;
+    }
+
     .card--right {
         left: 100%;
         transform: translateX(-100%);
@@ -574,6 +664,7 @@ footer h5 {
 
     .footer__container {
         grid-template-columns: 1fr 1fr auto;
+        align-items: center;
     }
 
     .footer__input {
