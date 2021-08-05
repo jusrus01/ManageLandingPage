@@ -282,7 +282,7 @@ button:hover, .button:hover {
 .info--header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     position: relative;
 }
 
@@ -300,9 +300,10 @@ button:hover, .button:hover {
 
 .info--bg {
     height: 100%;
-    width: 100%;
+    width: 110%;
     position: absolute;
-    background-color: var(--clr-pale-red);
+    background: linear-gradient(to right, transparent 5%, var(--clr-pale-red) 0%);
+    top: -2px;
     padding-top: 2.1rem;
     opacity: 0.5;
     z-index: -1;
@@ -324,15 +325,15 @@ button:hover, .button:hover {
 }
 
 .simply__container {
-    padding-left: 1.5rem;
+    /* padding-left: 1.5rem;
     padding-right: 1.5rem;
     padding-top: 1.0625rem;
-    padding-bottom: 1.0625rem;
+    padding-bottom: 1.0625rem; */
 
     max-width: 69.375rem;
     margin: 0 auto;
-    /* padding: 2rem 4rem; */
-    /* text-align: center; */
+    padding: 2rem 4rem;
+    text-align: center;
 }
 
 .simply__container h2 {
@@ -388,9 +389,8 @@ button:hover, .button:hover {
 }
 
 .testimonials-container button {
-    margin-top: 25rem;
-    margin-bottom: 10rem;
-
+    margin-top: 5rem;
+    margin-bottom: 2.5rem;
 }
 
 .card {
@@ -422,6 +422,10 @@ button:hover, .button:hover {
 
 .carousel--active {
     background-color: var(--clr-red);
+}
+
+.carousel-tracker {
+    margin-top: 28.125rem;
 }
 
 .carousel-tracker span:not(:last-child) {
@@ -642,6 +646,11 @@ footer h5 {
     .card {
         width: 30%;
         left: -100%;
+    }
+
+    .testimonials-container button {
+        margin-top: 25rem;
+        margin-bottom: 10rem;
     }
     
     /* 
