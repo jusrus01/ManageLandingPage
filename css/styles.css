@@ -353,11 +353,12 @@ button:hover, .button:hover {
 /* Card styles */
 
 .card--active {
-    visibility: visible;
+    /* visibility: visible; */
+    animation: fade-in 500ms ease-in-out forwards;
 }
 
 .card--inactive {
-    visibility: hidden;
+    animation: fade-out 500ms ease-in-out forwards;
 }
 
 .testimonials {
@@ -572,7 +573,7 @@ footer h5 {
 }
 
 @keyframes to-right {
-    
+
     from {
         left: 50%;
         transform: translateX(-50%);
