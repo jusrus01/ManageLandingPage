@@ -155,5 +155,6 @@ function checkEmailInput(e) {
         e.preventDefault();
     } else {
         emailSubmitFormError.innerText = '';
+        emailSubmitInput.value = '';
     }
 }
