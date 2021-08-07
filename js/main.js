@@ -1,11 +1,17 @@
 const menuButton = document.getElementById("menuButton");
 const header = document.getElementById("header");
 const body = document.querySelector("html");
-const menu = document.querySelector(".header--menu");
+const menu = document.querySelector(".header__menu");
 const overlay = document.querySelector(".overlay");
 
+const emailSubmitForm = document.getElementById("emailSubmitForm");
+const emailSubmitInput = document.getElementById("emailSubmitInput");
+const emailSubmitFormError = document.getElementById("emailSubmitFormError");
+
+emailSubmitForm.addEventListener("submit", checkEmailInput);
 menuButton.addEventListener("click", showMenuItems);
 menu.addEventListener("click", showMenuItems);
+
 
 // handling carousel
 const allTestimonials = document.querySelectorAll(".card");
@@ -137,5 +143,17 @@ function showMenuItems() {
 
         overlay.classList.add("fade-in");
         menu.classList.add("fade-in");
+    }
+}
+
+function checkEmailInput(e) { 
+
+    const value = emailSubmitInput.value;
+
+    if(value === '' || value == null || !value.includes("@")) {
+        emailSubmitFormError.innerText = "Please insert a valid email";
+        e.preventDefault();
+    } else {
+        emailSubmitFormError.innerText = '';
     }
 }

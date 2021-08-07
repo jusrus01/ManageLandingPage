@@ -551,6 +551,10 @@ footer h5 {
     text-decoration: none;
 }
 
+.grid {
+    display: inline-grid;
+}
+
 @keyframes move-outside {
     from {
         left: 100%;
@@ -770,4 +774,11 @@ footer h5 {
         visibility: hidden;
         opacity: 0;
     }
+}
+
+#emailSubmitFormError {
+    color: var(--clr-red);
+    font-family: "Be Vietnam", sans-serif;
+    font-style: italic;
+    font-size: 0.8rem;
 }
