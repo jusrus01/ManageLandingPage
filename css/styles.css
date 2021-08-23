@@ -747,6 +747,9 @@ footer h5 {
 
     .simply__container h2 {
         width: 50%;
+        padding-left: 0;
+        font-size: 2.6rem;
+        margin: 1rem 0;
     }
 
     .simply__container button {
@@ -755,7 +758,73 @@ footer h5 {
     }
 
     .footer__container img {
-        height: 2rem;
+        height: 1.8rem;
+    }
+
+    .hero__text h1 {
+        padding-right: 5rem;
+        padding-top: 4rem;
+        padding-left: 0;
+        padding-bottom: 0;
+        
+        font-size: 3rem;
+    }
+
+    .footer__input input {
+        width: 12.5rem;
+        padding-right: 0;
+    }
+
+    .hero__text p {
+        padding: 0;
+        font-size: 0.9rem;
+        max-width: 20rem;
+    }
+
+    .hero__image {
+        height: auto;
+    }
+
+    .diff {
+        width: 90rem;
+    }
+
+    .info__desc {
+        padding: 0;
+    }
+
+    .diff h2 {
+        padding: 0;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    .info__container {
+        padding: 0;
+        margin-left: 6rem;
+    }
+
+    .simply__container {
+        padding: 3rem 0;
+    }
+
+    .testimonials {
+        height: 17rem;
+    }
+
+    .bg-pattern--left {
+        top: 60rem;
+    }
+
+    .info__header span {
+        padding-top: 0.4rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .footer__links {
+        justify-content: space-between;
     }
 
     .card {
@@ -793,25 +862,35 @@ footer h5 {
     .footer__container {
         grid-template-columns: 1fr 1fr auto;
         align-items: center;
+
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .footer__input {
         grid-column-start: 3;
+        margin-right: 0;
     }
 
     .footer__links {
         grid-row-start: 1;
         grid-row-end: span 2;
+        width: 25rem;
+        margin-right: 6.25rem;
     }
 
     .footer__icons {
         grid-row-start: 2;
         grid-column-start: 1;
+
+        margin-left: 0;
     }
 
     .footer__logo {
         grid-column-start: 1;
         grid-row-start: 1;
+
+        margin-left: 0;
     }
 
     .bg-pattern {
@@ -820,6 +899,14 @@ footer h5 {
 
     .footer__copy {
         grid-column-start: 3;
+
+        margin-right: 0;
+        margin-left: auto;
+    }
+
+    .icon {
+        width: 35px;
+        height: 25px;
     }
 }
 
