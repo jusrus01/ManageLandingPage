@@ -12,17 +12,18 @@ emailSubmitForm.addEventListener("submit", checkEmailInput);
 menuButton.addEventListener("click", showMenuItems);
 menu.addEventListener("click", showMenuItems);
 
-
 // handling carousel
 const allTestimonials = document.querySelectorAll(".card");
-const allCarouselMarkers = document.querySelectorAll("div.carousel-tracker > span");
+const allCarouselMarkers = document.querySelectorAll(
+    "div.carousel-tracker > span"
+);
 const minScreenWidth = 1000;
 
 const classNames = {
     left: "card--left",
     right: "card--right",
     center: "card--center",
-    none: "card--none"
+    none: "card--none",
 };
 
 let carouselMarkersShowing = true;
@@ -31,71 +32,80 @@ let currentTestimonial = 0;
 setInterval(showNextTestimonial, 3000);
 
 function showNextTestimonial() {
-
-    if(body.clientWidth >= minScreenWidth && carouselMarkersShowing) {
+    if (body.clientWidth >= minScreenWidth && carouselMarkersShowing) {
         carouselMarkersShowing = false;
         // remove all inactive states
-        for(let i = 0; i < allTestimonials.length; i++) {
-            if(allTestimonials[i].classList.contains("card--inactive")) {
+        for (let i = 0; i < allTestimonials.length; i++) {
+            if (allTestimonials[i].classList.contains("card--inactive")) {
                 allTestimonials[i].classList.remove("card--inactive");
                 allTestimonials[i].classList.add("card--active");
             }
         }
-
-    } else if(body.clientWidth < minScreenWidth && !carouselMarkersShowing) {
+    } else if (body.clientWidth < minScreenWidth && !carouselMarkersShowing) {
         carouselMarkersShowing = true;
         currentTestimonial = 0;
-        for(let i = 0; i < allTestimonials.length; i++) {
-            if(allTestimonials[i].classList.contains("card--active")) {
+        for (let i = 0; i < allTestimonials.length; i++) {
+            if (allTestimonials[i].classList.contains("card--active")) {
                 allTestimonials[i].classList.remove("card--active");
                 allTestimonials[i].classList.add("card--inactive");
             }
 
-            if(allCarouselMarkers[i].classList.contains("carousel--active")) {
+            if (allCarouselMarkers[i].classList.contains("carousel--active")) {
                 allCarouselMarkers[i].classList.remove("carousel--active");
             }
         }
         allTestimonials[currentTestimonial].classList.add("card--active");
-        allCarouselMarkers[currentTestimonial].classList.add("carousel--active");
+        allCarouselMarkers[currentTestimonial].classList.add(
+            "carousel--active"
+        );
     }
-   
-    if(!carouselMarkersShowing) {
-        for(let i = 0; i < allTestimonials.length; i++) {
+
+    if (!carouselMarkersShowing) {
+        for (let i = 0; i < allTestimonials.length; i++) {
             changeClassState(allTestimonials[i]);
         }
     } else {
-
         let removeIndex;
-    
-        if(currentTestimonial >= allTestimonials.length) {
+
+        if (currentTestimonial >= allTestimonials.length) {
             currentTestimonial = 0;
             removeIndex = allTestimonials.length - 1;
-        } 
-        else if(currentTestimonial === 0) {
+        } else if (currentTestimonial === 0) {
             removeIndex = allTestimonials.length - 1;
-        }
-        else {
+        } else {
             removeIndex = currentTestimonial - 1;
         }
 
         let cur = allTestimonials[currentTestimonial];
         let prev = allTestimonials[removeIndex];
 
-        if(prev.classList.contains("card--active")) {
+        if (prev.classList.contains("card--active")) {
             prev.classList.remove("card--active");
             prev.classList.add("card--inactive");
-            
-            if(allCarouselMarkers[removeIndex].classList.contains("carousel--active")) {
-                allCarouselMarkers[removeIndex].classList.remove("carousel--active");
+
+            if (
+                allCarouselMarkers[removeIndex].classList.contains(
+                    "carousel--active"
+                )
+            ) {
+                allCarouselMarkers[removeIndex].classList.remove(
+                    "carousel--active"
+                );
             }
         }
 
-        if(cur.classList.contains("card--inactive")) {
+        if (cur.classList.contains("card--inactive")) {
             cur.classList.remove("card--inactive");
             cur.classList.add("card--active");
 
-            if(!allCarouselMarkers[currentTestimonial].classList.contains("carousel--active")) {
-                allCarouselMarkers[currentTestimonial].classList.add("carousel--active");
+            if (
+                !allCarouselMarkers[currentTestimonial].classList.contains(
+                    "carousel--active"
+                )
+            ) {
+                allCarouselMarkers[currentTestimonial].classList.add(
+                    "carousel--active"
+                );
             }
         }
     }
@@ -104,39 +114,38 @@ function showNextTestimonial() {
 }
 
 function changeClassState(element) {
-    if(element.classList.contains(classNames.left)) {
+    if (element.classList.contains(classNames.left)) {
         element.classList.remove(classNames.left);
         element.classList.add(classNames.center);
-    } else if(element.classList.contains(classNames.center)) {
+    } else if (element.classList.contains(classNames.center)) {
         element.classList.remove(classNames.center);
         element.classList.add(classNames.right);
-    } else if(element.classList.contains(classNames.right)) {
+    } else if (element.classList.contains(classNames.right)) {
         element.classList.remove(classNames.right);
         element.classList.add(classNames.none);
-    } else if(element.classList.contains(classNames.none)) {
+    } else if (element.classList.contains(classNames.none)) {
         element.classList.remove(classNames.none);
         element.classList.add(classNames.left);
     }
 }
 
 function showMenuItems() {
-    if(header.classList.contains("open")) {
+    if (header.classList.contains("open")) {
         header.classList.remove("open");
         body.classList.remove("disable-scroll");
 
-        if(overlay.classList.contains("fade-in")) {
+        if (overlay.classList.contains("fade-in")) {
             overlay.classList.remove("fade-in");
             menu.classList.remove("fade-in");
         }
 
         overlay.classList.add("fade-out");
         menu.classList.add("fade-out");
-
     } else {
         header.classList.add("open");
         body.classList.add("disable-scroll");
 
-        if(overlay.classList.contains("fade-out")) {
+        if (overlay.classList.contains("fade-out")) {
             overlay.classList.remove("fade-out");
             menu.classList.remove("fade-out");
         }
@@ -146,15 +155,14 @@ function showMenuItems() {
     }
 }
 
-function checkEmailInput(e) { 
-
+function checkEmailInput(e) {
     const value = emailSubmitInput.value;
 
-    if(value === '' || value == null || !value.includes("@")) {
+    if (value === "" || value == null || !value.includes("@")) {
         emailSubmitFormError.innerText = "Please insert a valid email";
         e.preventDefault();
     } else {
-        emailSubmitFormError.innerText = '';
-        emailSubmitInput.value = '';
+        emailSubmitFormError.innerText = "";
+        emailSubmitInput.value = "";
     }
 }
